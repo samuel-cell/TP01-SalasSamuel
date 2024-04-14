@@ -9,7 +9,7 @@ public class Main {
 		if(scanner.hasNextInt()) {
 			int num = scanner.nextInt();
 			if(num<0 || num >10) {
-				System.out.println("Solo calcula con numeros del 0 al 1011");
+				System.out.println("Solo calcula con numeros del 0 al 10");
 			}
 			else {
 				while(num!=0) {
