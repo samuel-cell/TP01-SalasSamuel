@@ -1,29 +1,60 @@
 package ar.edu.unju.fi.ejercicio10.Model;
 
 public class Pizza {
-	private double diameter;
-	private double price;
+	private int diametro;
+	private float precio;
 	private double area;
-	private boolean special_ingredients;
-	private final int special_in_20 = 500;
-	private final int special_in_30 = 700;
-	private final int special_in_40 = 1000;
-	
-	public Pizza() {
-		
+	private boolean ingredientesEspeciales;
+	final short INGREDIENTES_ESPECIALES_20=500;
+	final short INGREDIENTES_ESPECIALES_30=750;
+	final short INGREDIENTES_ESPECIALES_40=1000;
+	public int calcularPrecio() {
+		switch(diametro) {
+			case 20:
+				if(ingredientesEspeciales==true) {
+					return 4500+INGREDIENTES_ESPECIALES_20;
+				}
+				else {
+					return 4500;
+				}
+			case 30:
+				if(ingredientesEspeciales==true) {
+					return 4800+INGREDIENTES_ESPECIALES_30;
+				}
+				else {
+					return 4800;
+				}
+			case 40:
+				if(ingredientesEspeciales==true) {
+					return 5500+INGREDIENTES_ESPECIALES_40;
+				}
+				else {
+					return 5500;
+				}
+		}
+		return 0;
 	}
-	
-	public double getDiameter() {
-		return diameter;
+	public double calcularArea(){
+		area=Math.PI*(Math.pow((diametro/2), 2));
+		return area;
 	}
-	public void setDiameter(double diameter) {
-		this.diameter = diameter;
+	public void mostrarDatos() {
+		System.out.println("Diametro = "+diametro);
+		System.out.println("Ingredientes especiales ="+ingredientesEspeciales);
+		System.out.println("Precio Pizza = "+precio +"$");
+		System.out.println("Area de la pizza ="+area);
 	}
-	public double getPrice() {
-		return price;
+	public int getDiametro() {
+		return diametro;
 	}
-	public void setPrice(double price) {
-		this.price = price;
+	public void setDiametro(int diametro) {
+		this.diametro = diametro;
+	}
+	public float getPrecio() {
+		return precio;
+	}
+	public void setPrecio(float precio) {
+		this.precio = precio;
 	}
 	public double getArea() {
 		return area;
@@ -31,23 +62,10 @@ public class Pizza {
 	public void setArea(double area) {
 		this.area = area;
 	}
-	public boolean isSpecial_ingredients() {
-		return special_ingredients;
+	public boolean isIngredientesEspeciales() {
+		return ingredientesEspeciales;
 	}
-	public void setSpecial_ingredients(boolean special_ingredients) {
-		this.special_ingredients = special_ingredients;
-	}
-	
-	public double calcularPrecio(int option, boolean special) {
-		double precioBase = 0;
-		double precioEspecial = 0;
-		
-		switch (option) {
-			case 1:
-				precioBase = 4500;
-				if(special) {
-					
-				}
-		}
+	public void setIngredientesEspeciales(boolean ingredientesEspeciales) {
+		this.ingredientesEspeciales = ingredientesEspeciales;
 	}
 }
